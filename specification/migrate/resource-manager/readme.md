@@ -46,7 +46,7 @@ These are the global settings for the API.
 
 ``` yaml
 openapi-type: arm
-tag: package-2018-02
+tag: package-2019-10
 ```
 
 
@@ -59,6 +59,32 @@ input-file:
 - Microsoft.Migrate/stable/2018-02-02/migrate.json
 ```
 
+<<<<<<< Updated upstream
+=======
+### Tag: package-2019-10
+
+These settings apply only when `--tag=package-2019-10` is specified on the command line.
+
+``` yaml $(tag) == 'package-2019-10'
+input-file:
+- Microsoft.Migrate/stable/2019-10-01/migrate.json
+```
+
+## Suppression
+
+``` yaml
+directive:
+  - suppress: DefinitionsPropertiesNamesCamelCase
+    from: migrate.json
+    where: $.definitions.AssessedMachineProperties.properties.monthlyStandardSSDStorageCost
+    reason: SSD is short form.
+  - suppress: DefinitionsPropertiesNamesCamelCase
+    from: migrate.json
+    where: $.definitions.AssessmentProperties.properties.monthlyStandardSSDStorageCost
+    reason: SSD is short form.
+```
+
+>>>>>>> Stashed changes
 # Code Generation
 
 ## Swagger to SDK
